@@ -1,26 +1,25 @@
 import React from "react"
-import { Link as GatsbyLink } from "gatsby"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import { Link as GatsbyLink } from "gatsby"
 
-import { Button, Link } from "@material-ui/core"
+import { Button } from "@material-ui/core"
 
-const IndexPage: React.FC<{}> = () => (
+const Page2: React.FC<{}> = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <Button color="primary">Hello</Button>
+    <h1>Page2</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
-    <Link component={GatsbyLink} to="/page2/">
-      Go to page 2
-    </Link>
+    <Button component={GatsbyLink} color="secondary" to="/">
+      Go to page 1
+    </Button>
   </Layout>
 )
 
-export default IndexPage
+export default Page2

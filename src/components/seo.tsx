@@ -41,6 +41,21 @@ function SEO({ description = ``, lang = `en`, meta = [], title }: Props) {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
+      link={[
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css?family=Open+Sans:300,400,700",
+        },
+        {
+          rel: "stylesheet",
+          href:
+            "https://fonts.googleapis.com/css?family=Cedarville+Cursive:400",
+        },
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/icon?family=Material+Icons",
+        },
+      ]}
       meta={[
         {
           name: `vieport`,
