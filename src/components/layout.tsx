@@ -5,7 +5,7 @@ import theme from "../theme"
 
 import CssBaseline from "@material-ui/core/CssBaseline"
 import { ThemeProvider } from "@material-ui/core"
-import Header from "./header"
+import Header from "./Header"
 
 const Layout: React.FC<{}> = ({ children }) => {
   const data = useStaticQuery(graphql`
