@@ -43,6 +43,10 @@ function SEO({ description = ``, lang = `en`, meta = [], title }: Props) {
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
+          name: `vieport`,
+          content: "minimum-scale=1, initial-scale=1, width=device-width",
+        },
+        {
           name: `description`,
           content: metaDescription,
         },
@@ -57,22 +61,6 @@ function SEO({ description = ``, lang = `en`, meta = [], title }: Props) {
         {
           property: `og:type`,
           content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
         },
       ].concat(meta)}
     />
