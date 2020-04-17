@@ -12,7 +12,16 @@ interface Props {
   title: string
 }
 
-const navLinks = [{ to: "/", linkText: "Home" }]
+export interface NavLink {
+  to: string
+  label: string
+  sublinks?: NavLink[]
+}
+
+const navLinks: NavLink[] = [
+  { to: "/", label: "Home" },
+  { to: "/", label: "Products", sublinks: [{ to: "/", label: "Subproduct" }] },
+]
 
 const Nav: React.FC<Props> = ({ title, open, handleClose }) => {
   const classes = useStyles()
@@ -32,8 +41,8 @@ const Nav: React.FC<Props> = ({ title, open, handleClose }) => {
           {title}
         </Typography>
         <List className={classes.list}>
-          {navLinks.map((x: any) => {
-            return x.links ? (
+          {navLinks.map(x => {
+            return x.sublinks ? (
               <ListItem key={x.to} className={classes.listItem}>
                 <List className={classes.list}>
                   <ListItem button className={classes.listItem}>
@@ -47,7 +56,7 @@ const Nav: React.FC<Props> = ({ title, open, handleClose }) => {
                       </Typography>
                     </Link>
                   </ListItem>
-                  {x.links.map((y: any) => (
+                  {x.sublinks.map(y => (
                     <ListItem button key={y.to} className={classes.listItem}>
                       <Link to={y.to} className={classes.linkNested}>
                         <Typography
