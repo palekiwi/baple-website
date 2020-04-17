@@ -1,6 +1,8 @@
 const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
 
+const { NODE_ENV } = process.env
+
 function getDomain(slug) {
   const domains = [
     { name: "plastics", pattern: /^\/plastics\// },
@@ -29,8 +31,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     })
     createNodeField({
       node,
-      name: "underConstruction",
-      value: Boolean(node.frontmatter.underConstruction),
+      name: "publish",
+      value: Boolean(node.frontmatter.publish),
     })
   }
 }
@@ -46,10 +48,10 @@ exports.createPages = ({ graphql, actions }) => {
               fileAbsolutePath
               fields {
                 slug
-                underConstruction
+                publish
               }
               frontmatter {
-                layout
+                template
               }
             }
           }
@@ -63,9 +65,9 @@ exports.createPages = ({ graphql, actions }) => {
             path: node.fields.slug,
             component: path.resolve(
               `./src/templates/${
-                node.fields.underConstruction
+                !node.fields.publish && NODE_ENV == "production"
                   ? "UnderConstruction"
-                  : node.frontmatter.layout
+                  : node.frontmatter.template
               }.tsx`
             ),
             context: {

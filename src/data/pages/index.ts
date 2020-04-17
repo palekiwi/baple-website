@@ -1,6 +1,6 @@
 export const frontmatter = {
-  layout: "index",
-  underConstruction: "true",
+  template: "IndexTemplate",
+  publish: false,
   sections: {
     categories: {
       heading: "Bienvenido a Baple Group",
