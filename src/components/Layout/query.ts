@@ -7,7 +7,9 @@ interface Data {
       contact: ContactInfo
     }
   }
-  javascriptFrontmatter: { frontmatter: { domains: AppData[] } }
+  allJavascriptFrontmatter: {
+    edges: { node: { frontmatter: { division: AppData } } }[]
+  }
 }
 
 type Fn = () => Data
@@ -29,16 +31,24 @@ export const useLayoutQuery: Fn = () => {
           }
         }
       }
-      javascriptFrontmatter(fileAbsolutePath: { regex: "/domains/" }) {
-        frontmatter {
-          domains {
-            name
-            home
-            title
-            logo {
-              childImageSharp {
-                fixed(width: 250) {
-                  ...GatsbyImageSharpFixed
+      allJavascriptFrontmatter(
+        filter: { fileAbsolutePath: { regex: "/divisions/" } }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              division {
+                name
+                home
+                title
+                logo {
+                  text {
+                    childImageSharp {
+                      fixed(width: 250) {
+                        ...GatsbyImageSharpFixed
+                      }
+                    }
+                  }
                 }
               }
             }

@@ -18,23 +18,23 @@ const Layout: React.FC<Props> = ({ children, domain }) => {
   const classes = useStyles()
   const data = useLayoutQuery()
   const sm = data.site.siteMetadata
-  const d = data.javascriptFrontmatter.frontmatter.domains.find(
-    x => x.name === domain
+  const div = data.allJavascriptFrontmatter.edges.find(
+    x => x.node.frontmatter.division.name === domain
   )
 
-  if (!d) return <div>error</div>
+  if (!div) return <div>error</div>
 
   return (
     <div className={classes.layout}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Header siteTitle={d.title} />
+        <Header siteTitle={div.node.frontmatter.division.title} />
         <div>
           <main className={classes.main}>{children}</main>
           <Footer
             contact={sm.contact}
-            logo={d.logo.childImageSharp.fixed}
-            title={d.title}
+            logo={div.node.frontmatter.division.logo.text.childImageSharp.fixed}
+            title={div.node.frontmatter.division.title}
           />
         </div>
       </ThemeProvider>

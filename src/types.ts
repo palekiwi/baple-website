@@ -37,11 +37,17 @@ export interface Division {
 }
 
 export interface AppData extends Division {
-  logo: { childImageSharp: { fixed: FixedObject } }
+  logo: {
+    text: { childImageSharp: { fixed: FixedObject } }
+    notext: { childImageSharp: { fixed: FixedObject } }
+  }
 }
 
-export interface DomainData extends Division {
-  logo: string
+export interface DivisionData extends Division {
+  logo: {
+    text: string
+    notext: string
+  }
 }
 
 type Layout =

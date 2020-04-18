@@ -5,7 +5,10 @@ export const frontmatter: { domains: DomainData[] } = {
     {
       name: "group",
       title: "Baple Group",
-      logo: "../../images/logos/baple-group-logo.png",
+      logo: {
+        text: "../../images/logos/baple-group-logo.png",
+        notext: "../../images/logos/baple-group-logo.png",
+      },
       home: "/",
       navLinks: [
         {
