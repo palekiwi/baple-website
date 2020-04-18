@@ -1,25 +1,29 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
+import { DivisionName } from "../types"
+import { Link } from "gatsby"
 
 import { FluidObject } from "gatsby-image"
 
-interface CategoryLink {
-  label: string
-  to: string
-  image: {
-    childImageSharp: { fluid: FluidObject }
-  }
-}
-
 interface Props {
   data: {
+    divisions: {
+      edges: {
+        node: {
+          frontmatter: {
+            division: {
+              title: string
+              to: string
+              logo: { text: { childImageSharp: { fluid: FluidObject } } }
+            }
+          }
+        }
+      }[]
+    }
     javascriptFrontmatter: {
       fields: {
-        domain: string
-      }
-      frontmatter: {
-        sections: { categories: { categoryLinks: CategoryLink[] } }
+        domain: DivisionName
       }
     }
   }
@@ -29,14 +33,19 @@ const LandingTemplate: React.SFC<Props> = ({ data }) => {
   return (
     <Layout domain={data.javascriptFrontmatter.fields.domain}>
       <div>
-        <div>Index</div>
         <div>
-          {data.javascriptFrontmatter.frontmatter.sections.categories.categoryLinks.map(
-            x => (
-              <div key={x.label}>
-                <div>
-                  <img src={x.image.childImageSharp.fluid.src} />
-                </div>
+          {data.divisions.edges.map(
+            ({
+              node: {
+                frontmatter: { division },
+              },
+            }) => (
+              <div key={division.title}>
+                <Link to={division.to}>
+                  <div>
+                    <img src={division.logo.text.childImageSharp.fluid.src} />
+                  </div>
+                </Link>
               </div>
             )
           )}
@@ -50,26 +59,33 @@ export default LandingTemplate
 
 export const query = graphql`
   query($slug: String!) {
-    javascriptFrontmatter(fields: { slug: { eq: $slug } }) {
-      fields {
-        domain
-      }
-      frontmatter {
-        sections {
-          categories {
-            categoryLinks {
-              label
-              to
-              image {
-                childImageSharp {
-                  fluid(quality: 100, maxWidth: 400) {
-                    ...GatsbyImageSharpFluid
+    divisions: allJavascriptFrontmatter(
+      filter: { fileAbsolutePath: { regex: "/divisions/" } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            division {
+              name
+              home
+              title
+              logo {
+                text {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid
+                    }
                   }
                 }
               }
             }
           }
         }
+      }
+    }
+    javascriptFrontmatter(fields: { slug: { eq: $slug } }) {
+      fields {
+        domain
       }
     }
   }
