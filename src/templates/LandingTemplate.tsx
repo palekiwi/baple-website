@@ -14,7 +14,7 @@ interface Props {
           frontmatter: {
             division: {
               title: string
-              to: string
+              home: string
               logo: { text: { childImageSharp: { fluid: FluidObject } } }
             }
           }
@@ -34,21 +34,17 @@ const LandingTemplate: React.SFC<Props> = ({ data }) => {
     <Layout domain={data.javascriptFrontmatter.fields.domain}>
       <div>
         <div>
-          {data.divisions.edges.map(
-            ({
-              node: {
-                frontmatter: { division },
-              },
-            }) => (
+          {data.divisions.edges
+            .filter(x => x.node.frontmatter.division.home !== "/")
+            .map(({ node: { frontmatter: { division } } }) => (
               <div key={division.title}>
-                <Link to={division.to}>
+                <Link to={division.home}>
                   <div>
                     <img src={division.logo.text.childImageSharp.fluid.src} />
                   </div>
                 </Link>
               </div>
-            )
-          )}
+            ))}
         </div>
       </div>
     </Layout>
@@ -72,7 +68,7 @@ export const query = graphql`
               logo {
                 text {
                   childImageSharp {
-                    fluid {
+                    fluid(maxWidth: 250) {
                       ...GatsbyImageSharpFluid
                     }
                   }

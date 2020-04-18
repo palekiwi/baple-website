@@ -47,6 +47,8 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: "1em",
     },
     contact: {
+      display: "flex",
+      flexDirection: "column",
       borderColor: theme.palette.secondary.light,
       color: "#ccc",
     },
