@@ -9,6 +9,7 @@ import FacebookIcon from "mdi-material-ui/Facebook"
 import TwitterIcon from "mdi-material-ui/Twitter"
 import InstagramIcon from "mdi-material-ui/Instagram"
 import { FixedObject } from "gatsby-image"
+import { ContactInfo } from "../../types"
 
 const divisions = [
   ["/", "Baple Group"],
@@ -20,32 +21,25 @@ const divisions = [
 
 import useStyles from "./styles"
 
-interface ContactObject {}
-
 interface Props {
   title: string
   logo?: FixedObject
-  contact: ContactObject
+  contact: ContactInfo
 }
 
-const Footer: React.SFC<Props> = ({ contact, title, logo }) => {
+const Footer: React.FC<Props> = ({ contact, title, logo }) => {
   const classes = useStyles()
   return (
     <footer className={classes.footer}>
       <div className={classes.footerAddress}>
         <div className={classes.addressInner}>
-          {logo && (
-            <img
-              className={classes.logo}
-              src={logo.childImageSharp.fixed.src}
-            />
-          )}
+          {logo && <img className={classes.logo} src={logo.src} />}
           <div className={classes.contact}>
-            <Typography variant="title" color="inherit" gutterBottom>
+            <Typography color="inherit" gutterBottom>
               {title}
             </Typography>
-            <Typography variant="subheading" color="inherit" gutterBottom>
-              {contact.name}
+            <Typography color="inherit" gutterBottom>
+              {contact.contactName}
             </Typography>
             <Typography variant="caption" color="inherit">
               {contact.phone}
@@ -72,14 +66,14 @@ const Footer: React.SFC<Props> = ({ contact, title, logo }) => {
             </IconButton>
           </a>
         )}
-        {contact.socialMedia.facebook && (
+        {contact.socialMedia.instagram && (
           <a href={contact.socialMedia.instagram}>
             <IconButton>
               <InstagramIcon />
             </IconButton>
           </a>
         )}
-        {contact.socialMedia.facebook && (
+        {contact.socialMedia.twitter && (
           <a href={contact.socialMedia.twitter}>
             <IconButton>
               <TwitterIcon />
@@ -89,7 +83,8 @@ const Footer: React.SFC<Props> = ({ contact, title, logo }) => {
       </div>
       <div className={clsx(classes.footerCopy, classes.layout)}>
         <Typography variant="caption" color="secondary">
-          © 2018 Copyright: <span className={classes.white}>Baple Group</span>
+          © {new Date().getFullYear()} Copyright:{" "}
+          <span className={classes.white}>Baple Group</span>
         </Typography>
       </div>
     </footer>

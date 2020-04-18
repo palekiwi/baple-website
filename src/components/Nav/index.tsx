@@ -2,6 +2,7 @@ import React from "react"
 import Drawer from "@material-ui/core/Drawer"
 import { Typography, IconButton, List, ListItem } from "@material-ui/core"
 import { Link } from "gatsby"
+import { NavLink } from "../../types"
 import CloseIcon from "@material-ui/icons/Close"
 
 import useStyles from "./styles"
@@ -12,15 +13,9 @@ interface Props {
   title: string
 }
 
-export interface NavLink {
-  to: string
-  label: string
-  sublinks?: NavLink[]
-}
-
 const navLinks: NavLink[] = [
   { to: "/", label: "Home" },
-  { to: "/", label: "Products", sublinks: [{ to: "/", label: "Subproduct" }] },
+  { to: "/", label: "Products", links: [{ to: "/", label: "Subproduct" }] },
 ]
 
 const Nav: React.FC<Props> = ({ title, open, handleClose }) => {
@@ -42,7 +37,7 @@ const Nav: React.FC<Props> = ({ title, open, handleClose }) => {
         </Typography>
         <List className={classes.list}>
           {navLinks.map(x => {
-            return x.sublinks ? (
+            return x.links ? (
               <ListItem key={x.to} className={classes.listItem}>
                 <List className={classes.list}>
                   <ListItem button className={classes.listItem}>
@@ -56,7 +51,7 @@ const Nav: React.FC<Props> = ({ title, open, handleClose }) => {
                       </Typography>
                     </Link>
                   </ListItem>
-                  {x.sublinks.map(y => (
+                  {x.links.map(y => (
                     <ListItem button key={y.to} className={classes.listItem}>
                       <Link to={y.to} className={classes.linkNested}>
                         <Typography

@@ -1,3 +1,4 @@
+import { FixedObject } from "gatsby-image"
 // basic types
 type Heading = string
 type Subheading = string
@@ -12,7 +13,36 @@ type Phone = string
 type Email = string
 type Address = string[]
 type Lang = "es"
-type SocialMedia = string
+type SocialMediaLink = string
+
+interface SocialMedia {
+  twitter?: SocialMediaLink
+  facebook?: SocialMediaLink
+  instagram?: SocialMediaLink
+  youtube?: SocialMediaLink
+}
+
+export type DivisionName =
+  | "group"
+  | "plastics"
+  | "energy"
+  | "engineering"
+  | "metalPackaging"
+
+export interface Division {
+  name: DivisionName
+  home: string
+  title: string
+  navLinks: NavLink[]
+}
+
+export interface AppData extends Division {
+  logo: { childImageSharp: { fixed: FixedObject } }
+}
+
+export interface DomainData extends Division {
+  logo: string
+}
 
 type Layout =
   | "landing"
@@ -29,16 +59,16 @@ interface Quote {
 }
 
 // compound types
-interface Link {
+export interface Link {
   to: string
   label: Label
 }
 
-interface CategoryLink extends Link {
+export interface CategoryLink extends Link {
   image: Image
 }
 
-interface NavLink extends Link {
+export interface NavLink extends Link {
   links?: Link[]
 }
 
@@ -68,18 +98,15 @@ interface ProductListItem {
   link: Link
 }
 
-interface ContactGroup {
+export interface ContactInfo {
   contactName: ContactName
   phone: Phone
   email: Email
   address: Address
-  twitter?: SocialMedia
-  facebook?: SocialMedia
-  instagram?: SocialMedia
-  youtube?: SocialMedia
+  socialMedia: SocialMedia
 }
 
-type Contact = ContactGroup[]
+type Contact = ContactInfo[]
 
 interface Nav {
   home: string

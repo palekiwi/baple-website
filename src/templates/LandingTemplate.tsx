@@ -26,11 +26,8 @@ interface Props {
 }
 
 const LandingTemplate: React.SFC<Props> = ({ data }) => {
-  console.log(
-    data.javascriptFrontmatter.frontmatter.sections.categories.categoryLinks
-  )
   return (
-    <Layout>
+    <Layout domain={data.javascriptFrontmatter.fields.domain}>
       <div>
         <div>Index</div>
         <div>
