@@ -9,15 +9,7 @@ import FacebookIcon from "mdi-material-ui/Facebook"
 import TwitterIcon from "mdi-material-ui/Twitter"
 import InstagramIcon from "mdi-material-ui/Instagram"
 import { FixedObject } from "gatsby-image"
-import { ContactInfo } from "../../types"
-
-const divisions = [
-  ["/", "Baple Group"],
-  ["/plastics", "Baple Plastics"],
-  ["/energy", "Baple Energy"],
-  ["/metal-packaging", "Baple Metal Packaging"],
-  ["/engineering", "Baple Engineering"],
-]
+import { AppData, ContactInfo } from "../../types"
 
 import useStyles from "./styles"
 
@@ -25,9 +17,11 @@ interface Props {
   title: string
   logo?: FixedObject
   contact: ContactInfo
+  divisions: { node: { frontmatter: { division: AppData } } }[]
 }
 
-const Footer: React.FC<Props> = ({ contact, title, logo }) => {
+const Footer: React.FC<Props> = ({ contact, title, logo, divisions }) => {
+  console.log(divisions)
   const classes = useStyles()
   return (
     <footer className={classes.footer}>
@@ -51,9 +45,9 @@ const Footer: React.FC<Props> = ({ contact, title, logo }) => {
         </div>
         <div className={classes.footerDivisions}>
           <Divider />
-          {divisions.map(x => (
-            <Link to={x[0]} key={x[0]}>
-              <Button color="secondary">{x[1]}</Button>
+          {divisions.map(({ node: { frontmatter: { division } } }) => (
+            <Link to={division.home} key={division.home}>
+              <Button color="secondary">{division.title}</Button>
             </Link>
           ))}
         </div>
