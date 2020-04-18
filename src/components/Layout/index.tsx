@@ -29,15 +29,13 @@ const Layout: React.FC<Props> = ({ children, domain }) => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Header siteTitle={div.node.frontmatter.division.title} />
-        <div>
-          <main className={classes.main}>{children}</main>
-          <Footer
-            divisions={data.allJavascriptFrontmatter.edges}
-            contact={sm.contact}
-            logo={div.node.frontmatter.division.logo.text.childImageSharp.fixed}
-            title={div.node.frontmatter.division.title}
-          />
-        </div>
+        <main className={classes.main}>{children}</main>
+        <Footer
+          divisions={data.allJavascriptFrontmatter.edges}
+          contact={sm.contact}
+          logo={div.node.frontmatter.division.logo.text.childImageSharp.fixed}
+          title={div.node.frontmatter.division.title}
+        />
       </ThemeProvider>
     </div>
   )
