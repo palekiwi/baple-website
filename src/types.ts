@@ -1,4 +1,4 @@
-import { FixedObject } from "gatsby-image"
+import { FixedObject, FluidObject } from "gatsby-image"
 // basic types
 type Heading = string
 type Subheading = string
@@ -38,8 +38,8 @@ export interface Division {
 
 export interface AppData extends Division {
   logo: {
-    text: { childImageSharp: { fixed: FixedObject } }
-    notext: { childImageSharp: { fixed: FixedObject } }
+    text: { childImageSharp: { fixed: FixedObject; fluid: FluidObject } }
+    notext: { childImageSharp: { fixed: FixedObject; fluid: FluidObject } }
   }
 }
 

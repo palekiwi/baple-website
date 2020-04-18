@@ -1,10 +1,9 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
-import { DivisionName } from "../types"
+import { DivisionName, AppData } from "../types"
+import DivisionsList from "../components/DivisionsList"
 import { Link } from "gatsby"
-
-import { FluidObject } from "gatsby-image"
 
 interface Props {
   data: {
@@ -12,11 +11,7 @@ interface Props {
       edges: {
         node: {
           frontmatter: {
-            division: {
-              title: string
-              home: string
-              logo: { text: { childImageSharp: { fluid: FluidObject } } }
-            }
+            division: AppData
           }
         }
       }[]
@@ -33,19 +28,7 @@ const LandingTemplate: React.SFC<Props> = ({ data }) => {
   return (
     <Layout domain={data.javascriptFrontmatter.fields.domain}>
       <div>
-        <div>
-          {data.divisions.edges
-            .filter(x => x.node.frontmatter.division.home !== "/")
-            .map(({ node: { frontmatter: { division } } }) => (
-              <div key={division.title}>
-                <Link to={division.home}>
-                  <div>
-                    <img src={division.logo.text.childImageSharp.fluid.src} />
-                  </div>
-                </Link>
-              </div>
-            ))}
-        </div>
+        <DivisionsList divisions={data.divisions.edges} />
       </div>
     </Layout>
   )
