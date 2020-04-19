@@ -1,16 +1,8 @@
 export const frontmatter = {
-  template: "DivisionIndexTemplate",
-  publish: false,
-  title: "Baple Metal Packaging",
+  template: "SolutionsTemplate",
+  publish: true,
+  title: "Solutions",
   sections: {
-    welcome: {
-      heading:
-        "Because innovation sells packaging and packaging sells products",
-      subheading:
-        "Porque innovación vende packaging y el packaging vende productos",
-      logo: "../../../images/logos/baple-metal-packaging-logo.png",
-      image: "../../../images/background/MetalPackaging.jpg",
-    },
     categories: {
       heading: "Soluciones de Aerosol",
       categoryLinks: [
