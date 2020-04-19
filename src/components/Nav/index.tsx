@@ -2,23 +2,21 @@ import React from "react"
 import Drawer from "@material-ui/core/Drawer"
 import { Typography, IconButton, List, ListItem } from "@material-ui/core"
 import { Link } from "gatsby"
-import { NavLink } from "../../types"
+import { AppData, ContactInfo } from "../../types"
 import CloseIcon from "@material-ui/icons/Close"
+import PhoneIcon from "@material-ui/icons/Phone"
+import EmailIcon from "@material-ui/icons/Email"
 
 import useStyles from "./styles"
 
 interface Props {
   handleClose: (event: React.KeyboardEvent | React.MouseEvent) => void
   open: boolean
-  title: string
+  contact: ContactInfo
+  division: AppData
 }
 
-const navLinks: NavLink[] = [
-  { to: "/", label: "Home" },
-  { to: "/", label: "Products", links: [{ to: "/", label: "Subproduct" }] },
-]
-
-const Nav: React.FC<Props> = ({ title, open, handleClose }) => {
+const Nav: React.FC<Props> = ({ division: d, contact, open, handleClose }) => {
   const classes = useStyles()
   return (
     <Drawer anchor="right" open={open} onClose={handleClose}>
@@ -32,11 +30,15 @@ const Nav: React.FC<Props> = ({ title, open, handleClose }) => {
         <IconButton className={classes.close}>
           <CloseIcon color="secondary" />
         </IconButton>
-        <Typography variant="subtitle1" className={classes.title}>
-          {title}
+        <img
+          className={classes.logo}
+          src={d.logo.text.childImageSharp.fixed.src}
+        />
+        <Typography variant="h5" className={classes.title}>
+          {d.title}
         </Typography>
         <List className={classes.list}>
-          {navLinks.map(x => {
+          {d.navLinks.map(x => {
             return x.links ? (
               <ListItem key={x.to} className={classes.listItem}>
                 <List className={classes.list}>
@@ -81,6 +83,20 @@ const Nav: React.FC<Props> = ({ title, open, handleClose }) => {
             )
           })}
         </List>
+        {contact && (
+          <div className={classes.contact}>
+            <div className={classes.details}>
+              <PhoneIcon className={classes.icon} />
+              <Typography color="inherit" gutterBottom>
+                {contact.phone}
+              </Typography>
+            </div>
+            <div className={classes.details}>
+              <EmailIcon className={classes.icon} />
+              <Typography color="inherit">{contact.email}</Typography>
+            </div>
+          </div>
+        )}
       </div>
     </Drawer>
   )

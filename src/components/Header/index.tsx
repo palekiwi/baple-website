@@ -10,18 +10,16 @@ import {
   Toolbar,
 } from "@material-ui/core"
 import MenuIcon from "@material-ui/icons/Menu"
-import { FixedObject } from "gatsby-image"
 import { AppData, ContactInfo } from "../../types"
 
 import useStyles from "./styles"
 
 interface Props {
-  logo?: FixedObject
   contact: ContactInfo
   division: AppData
 }
 
-const Header: React.FC<Props> = ({ division: d }) => {
+const Header: React.FC<Props> = ({ division: d, contact }) => {
   const classes = useStyles()
   const [state, setState] = React.useState(false)
   const toggleDrawer = (open: boolean) => (
@@ -70,7 +68,12 @@ const Header: React.FC<Props> = ({ division: d }) => {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Nav title={d.title} open={state} handleClose={toggleDrawer(false)} />
+      <Nav
+        contact={contact}
+        division={d}
+        open={state}
+        handleClose={toggleDrawer(false)}
+      />
     </header>
   )
 }
