@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core"
 import MenuIcon from "@material-ui/icons/Menu"
 import { AppData, ContactInfo } from "../../types"
+import LogoHeader from "../LogoHeader"
 
 import useStyles from "./styles"
 
@@ -42,10 +43,9 @@ const Header: React.FC<Props> = ({ division: d, contact }) => {
         <Toolbar>
           <Link to={d.home}>
             <div className={classes.brand}>
-              <img
-                className={classes.logo}
-                src={d.logo.notext.childImageSharp.fixed.src}
-              />
+              <div className={classes.logo}>
+                <LogoHeader />
+              </div>
               <Hidden smDown>
                 <Typography color="primary" className={classes.title}>
                   {d.title}

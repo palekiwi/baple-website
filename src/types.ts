@@ -2,8 +2,8 @@ import { FixedObject, FluidObject } from "gatsby-image"
 // basic types
 type Heading = string
 type Subheading = string
-type Logo = string
-type Image = string
+type Logo = { childImageSharp: { fluid: FluidObject } }
+type Image = { childImageSharp: { fluid: FluidObject } }
 type Paragraph = string
 type Body = Paragraph[]
 type Label = string
@@ -140,7 +140,7 @@ interface ImageSection extends Section {
   image?: Image
 }
 
-interface Welcome extends ImageSection {
+export interface WelcomeSection extends ImageSection {
   logo?: Logo
   quotes?: Quote[]
 }
@@ -149,7 +149,7 @@ interface More extends ImageSection {
   logo: Logo
 }
 
-interface Categories extends ImageSection {
+export interface CategoriesSection extends ImageSection {
   categoryLinks: CategoryLink[]
 }
 
@@ -186,11 +186,11 @@ interface CategoryList extends Section {
 }
 
 type Sections =
-  | Welcome
+  | WelcomeSection
   | About
   | ContactUs
   | ContactDetails
-  | Categories
+  | CategoriesSection
   | More
   | Advantages
   | TCS

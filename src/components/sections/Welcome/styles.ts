@@ -40,8 +40,9 @@ export const useDesktopStyles = makeStyles((theme: Theme) =>
       textAlign: "center",
     },
     heading: {
-      fontFamily: "Cedarville Cursive, sans-serif",
+      fontFamily: "Cedarville Cursive, OpenSans, sans-serif",
       color: theme.palette.primary.main,
+      fontWeight: 400,
       marginBottom: "1.2em",
     },
     subheading: {
@@ -98,7 +99,7 @@ export const useMobileStyles = makeStyles((theme: Theme) =>
       textAlign: "center",
     },
     heading: {
-      fontFamily: "Cedarville Cursive, sans-serif",
+      fontFamily: "Cedarville Cursive, OpenSans, sans-serif",
       color: theme.palette.primary.main,
       marginBottom: "1.2em",
     },

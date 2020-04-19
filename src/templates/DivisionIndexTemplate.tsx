@@ -1,8 +1,12 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
-import { DivisionName } from "../types"
+import { DivisionName, WelcomeSection, CategoriesSection } from "../types"
 import Welcome from "../components/sections/Welcome"
+import Categories from "../components/sections/Categories"
+import SEO from "../components/seo"
+import Hero from "../components/sections/Hero"
+import { Container } from "@material-ui/core"
 
 interface Props {
   data: {
@@ -11,10 +15,10 @@ interface Props {
         domain: DivisionName
       }
       frontmatter: {
+        title: string
         sections: {
-          welcome: any
-          categories: any
-          products: any
+          welcome: WelcomeSection
+          categories: CategoriesSection
         }
       }
     }
@@ -22,17 +26,33 @@ interface Props {
 }
 
 const DivisionIndexTemplate: React.FC<Props> = ({ data }) => {
-  const { welcome } = data.javascriptFrontmatter.frontmatter.sections
+  const {
+    welcome,
+    categories,
+  } = data.javascriptFrontmatter.frontmatter.sections
   return (
     <Layout domain={data.javascriptFrontmatter.fields.domain}>
+      <SEO title={data.javascriptFrontmatter.frontmatter.title} />
       {welcome && (
         <Welcome
           heading={welcome.heading}
           subheading={welcome.subheading}
-          logo={welcome.logo.childImageSharp.fluid}
-          image={welcome.image.childImageSharp.fluid}
+          logo={welcome.logo && welcome.logo.childImageSharp.fluid}
+          image={welcome.image && welcome.image.childImageSharp.fluid}
           quotes={welcome.quotes}
         />
+      )}
+      {categories && (
+        <Hero heading={categories.heading}>
+          <Container>
+            <Categories
+              heading={categories.heading}
+              subheading={categories.subheading}
+              image={categories.image}
+              categoryLinks={categories.categoryLinks}
+            />
+          </Container>
+        </Hero>
       )}
     </Layout>
   )
@@ -47,6 +67,7 @@ export const query = graphql`
         domain
       }
       frontmatter {
+        title
         sections {
           welcome {
             heading
@@ -64,10 +85,24 @@ export const query = graphql`
             }
             image {
               childImageSharp {
-                fluid(maxWidth: 1920) {
+                fluid(maxWidth: 1920, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
+            }
+          }
+          categories {
+            heading
+            categoryLinks {
+              label
+              image {
+                childImageSharp {
+                  fluid(quality: 100, maxWidth: 250) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+              to
             }
           }
         }

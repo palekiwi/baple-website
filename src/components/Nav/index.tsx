@@ -6,6 +6,7 @@ import { AppData, ContactInfo } from "../../types"
 import CloseIcon from "@material-ui/icons/Close"
 import PhoneIcon from "@material-ui/icons/Phone"
 import EmailIcon from "@material-ui/icons/Email"
+import Logo from "../Logo"
 
 import useStyles from "./styles"
 
@@ -30,10 +31,9 @@ const Nav: React.FC<Props> = ({ division: d, contact, open, handleClose }) => {
         <IconButton className={classes.close}>
           <CloseIcon color="secondary" />
         </IconButton>
-        <img
-          className={classes.logo}
-          src={d.logo.text.childImageSharp.fixed.src}
-        />
+        <div className={classes.logo}>
+          <Logo domain={d.name} />
+        </div>
         <Typography variant="h5" className={classes.title}>
           {d.title}
         </Typography>

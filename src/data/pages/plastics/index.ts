@@ -1,22 +1,43 @@
 export const frontmatter = {
   template: "DivisionIndexTemplate",
   publish: false,
+  title: "Baple Plastics",
   sections: {
     welcome: {
-      heading: "",
-      subheading: "",
-      logo: "../../../images/logos/baple-engineering-logo.png",
-      image: "../../../images/engineering/diego-ph-249471-unsplash.jpg",
-      quotes: [
+      heading:
+        "Because innovation sells packaging and packaging sells products",
+      subheading:
+        "Porque innovación vende packaging y el packaging vende productos",
+      logo: "../../../images/logos/baple-plastics-logo.png",
+      image: "../../../images/plastics/Products_Welcome.jpg",
+    },
+    categories: {
+      heading: "Soluciones de Plástico para usos generales",
+      categoryLinks: [
         {
-          quote:
-            "Let’s go invent tomorrow rather than worrying about what happened yesterday.",
-          author: "Steve Jobs",
+          label: "Pulverizadores",
+          image: "../../../images/plastics/icons/pulverizadores-logo.png",
+          to: "/plastics/pulverizadores",
         },
         {
-          quote:
-            "Vamos a inventar el mañana en lugar de preocuparnos por lo que pasó ayer",
-          author: "Steve Jobs",
+          label: "Bombas de locion",
+          image: "../../../images/plastics/icons/bombas-locion-logo.png",
+          to: "/plastics/bombas-de-locion",
+        },
+        {
+          label: "Micropulverizadores",
+          image: "../../../images/plastics/icons/micropulverizador-logo.png",
+          to: "/plastics/micropulverizadores",
+        },
+        {
+          label: "Tapones",
+          image: "../../../images/plastics/icons/tapones-de-plastico-logo.png",
+          to: "/plastics/tapones",
+        },
+        {
+          label: "Botellas",
+          image: "../../../images/plastics/icons/botes-de-plastico-logo.png",
+          to: "/plastics/botellas",
         },
       ],
     },

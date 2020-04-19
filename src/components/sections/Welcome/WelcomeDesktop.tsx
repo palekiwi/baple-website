@@ -24,12 +24,16 @@ const WelcomeDesktop: React.SFC<Props> = ({
           <Grid item xs={12} md={8} className={classes.textPane}>
             <div className={classes.text}>
               {heading && (
-                <Typography className={classes.heading} variant="h3">
+                <Typography
+                  className={classes.heading}
+                  variant="h3"
+                  component="h1"
+                >
                   {heading}
                 </Typography>
               )}
               {subheading && (
-                <Typography className={classes.subheading} variant="h2">
+                <Typography className={classes.subheading} variant="h4">
                   {subheading}
                 </Typography>
               )}

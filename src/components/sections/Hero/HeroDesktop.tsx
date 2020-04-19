@@ -1,5 +1,5 @@
 import * as React from "react"
-import Typography from "@material-ui/core/Typography"
+import { Container, Typography } from "@material-ui/core"
 import clsx from "clsx"
 import Image from "gatsby-image"
 import { useDesktopStyles } from "./styles"
@@ -25,19 +25,21 @@ const HeroDesktop: React.SFC<Props> = ({
       <div className={classes.container}>
         <div className={classes.overlay} />
         {before && before}
-        <div className={classes.header}>
-          {heading && (
-            <Typography variant="h2" className={classes.heading}>
-              {heading}
-            </Typography>
-          )}
-          {subheading && (
-            <Typography variant="h6" className={classes.subheading}>
-              {subheading}
-            </Typography>
-          )}
-        </div>
-        {children}
+        <Container>
+          <div className={classes.header}>
+            {heading && (
+              <Typography variant="h2" className={classes.heading}>
+                {heading}
+              </Typography>
+            )}
+            {subheading && (
+              <Typography variant="h6" className={classes.subheading}>
+                {subheading}
+              </Typography>
+            )}
+          </div>
+          {children}
+        </Container>
       </div>
     </section>
   )
