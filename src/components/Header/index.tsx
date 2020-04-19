@@ -46,7 +46,7 @@ const Header: React.FC<Props> = ({ division: d, contact }) => {
               <div className={classes.logo}>
                 <LogoHeader />
               </div>
-              <Hidden smDown>
+              <Hidden xsDown>
                 <Typography color="primary" className={classes.title}>
                   {d.title}
                 </Typography>

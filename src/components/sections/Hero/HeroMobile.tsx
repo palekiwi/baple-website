@@ -24,7 +24,11 @@ const HeroMobile: React.SFC<Props> = ({
           <div className={classes.container}>
             <div className={classes.overlay} />
             {before && before}
-            <Typography className={classes.heading} variant="h2">
+            <Typography
+              color="primary"
+              className={classes.heading}
+              variant="h4"
+            >
               {heading}
             </Typography>
             <Typography variant="h5">{subheading}</Typography>
