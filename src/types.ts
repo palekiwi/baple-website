@@ -160,7 +160,7 @@ export interface CategoriesSection extends ImageSection {
   categoryLinks: CategoryLink[]
 }
 
-interface Products extends Section {
+export interface ProductsSection extends Section {
   productList: ProductListItem[]
 }
 

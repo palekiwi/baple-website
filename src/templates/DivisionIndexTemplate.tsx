@@ -1,9 +1,15 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
-import { DivisionName, WelcomeSection, CategoriesSection } from "../types"
+import {
+  DivisionName,
+  WelcomeSection,
+  CategoriesSection,
+  ProductsSection,
+} from "../types"
 import Welcome from "../components/sections/Welcome"
 import Categories from "../components/sections/Categories"
+import Products from "../components/sections/Products"
 import SEO from "../components/seo"
 import Hero from "../components/sections/Hero"
 import { Container } from "@material-ui/core"
@@ -20,6 +26,7 @@ interface Props {
         sections: {
           welcome: WelcomeSection
           categories: CategoriesSection
+          products: ProductsSection
         }
       }
     }
@@ -30,6 +37,7 @@ const DivisionIndexTemplate: React.FC<Props> = ({ data }) => {
   const {
     welcome,
     categories,
+    products,
   } = data.javascriptFrontmatter.frontmatter.sections
   const domain = data.javascriptFrontmatter.fields.domain
   return (
@@ -39,7 +47,6 @@ const DivisionIndexTemplate: React.FC<Props> = ({ data }) => {
         <Welcome
           heading={welcome.heading}
           subheading={welcome.subheading}
-          logo={welcome.logo && welcome.logo.childImageSharp.fluid}
           domain={domain}
           image={welcome.image && welcome.image.childImageSharp.fluid}
           quotes={welcome.quotes}
@@ -56,6 +63,11 @@ const DivisionIndexTemplate: React.FC<Props> = ({ data }) => {
             />
           </Container>
         </Hero>
+      )}
+      {products && (
+        <Container>
+          <Products products={products.productList} />
+        </Container>
       )}
       <More domain={domain} />
     </Layout>
@@ -91,6 +103,24 @@ export const query = graphql`
               childImageSharp {
                 fluid(maxWidth: 1920, quality: 100) {
                   ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          products {
+            productList {
+              heading
+              subheading
+              body
+              link {
+                to
+                label
+              }
+              image {
+                childImageSharp {
+                  fluid(quality: 100, maxWidth: 800) {
+                    ...GatsbyImageSharpFluid
+                  }
                 }
               }
             }

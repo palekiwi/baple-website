@@ -1,8 +1,9 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
-import { DivisionName, CategoriesSection } from "../types"
+import { DivisionName, CategoriesSection, ProductsSection } from "../types"
 import Categories from "../components/sections/Categories"
+import Products from "../components/sections/Products"
 import SEO from "../components/seo"
 import Hero from "../components/sections/Hero"
 import { Container } from "@material-ui/core"
@@ -18,6 +19,7 @@ interface Props {
         title: string
         sections: {
           categories: CategoriesSection
+          products: ProductsSection
         }
       }
     }
@@ -25,7 +27,10 @@ interface Props {
 }
 
 const DivisionIndexTemplate: React.FC<Props> = ({ data }) => {
-  const { categories } = data.javascriptFrontmatter.frontmatter.sections
+  const {
+    categories,
+    products,
+  } = data.javascriptFrontmatter.frontmatter.sections
   const domain = data.javascriptFrontmatter.fields.domain
   return (
     <Layout domain={domain}>
@@ -41,6 +46,11 @@ const DivisionIndexTemplate: React.FC<Props> = ({ data }) => {
             />
           </Container>
         </Hero>
+      )}
+      {products && (
+        <Container>
+          <Products products={products.productList} />
+        </Container>
       )}
       <More domain={domain} />
     </Layout>
@@ -58,6 +68,24 @@ export const query = graphql`
       frontmatter {
         title
         sections {
+          products {
+            productList {
+              heading
+              subheading
+              body
+              link {
+                to
+                label
+              }
+              image {
+                childImageSharp {
+                  fluid(quality: 100, maxWidth: 800) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
           categories {
             heading
             categoryLinks {

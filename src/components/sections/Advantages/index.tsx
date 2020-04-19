@@ -22,7 +22,7 @@ const Advantages: React.FC<{}> = () => {
         left={
           <div className={classes.pane}>
             <Typography className={classes.heading} variant="h4">
-              Ventajas de Baple Metal Packaging
+              Ventajas de Baple
             </Typography>
             <div className={classes.text}>
               <Typography

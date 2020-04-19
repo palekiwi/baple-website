@@ -31,12 +31,16 @@ const SectionImage: React.FC<Props> = ({
         <div className={classes.content}>
           {before && <div className={classes.before}>{before}</div>}
           {heading && (
-            <Typography variant="h4" className={classes.heading}>
+            <Typography
+              color="primary"
+              variant="h4"
+              className={classes.heading}
+            >
               {heading}
             </Typography>
           )}
           {subheading && (
-            <Typography variant="h5" className={classes.subheading}>
+            <Typography variant="h6" className={classes.subheading}>
               {subheading}
             </Typography>
           )}
