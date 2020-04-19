@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import { DivisionName, AppData } from "../types"
 import DivisionsList from "../components/DivisionsList"
-import { Link } from "gatsby"
+import Hero from "../components/sections/Hero"
 
 interface Props {
   data: {
@@ -27,9 +27,9 @@ interface Props {
 const LandingTemplate: React.SFC<Props> = ({ data }) => {
   return (
     <Layout domain={data.javascriptFrontmatter.fields.domain}>
-      <div>
+      <Hero>
         <DivisionsList divisions={data.divisions.edges} />
-      </div>
+      </Hero>
     </Layout>
   )
 }

@@ -33,6 +33,7 @@ export interface Division {
   name: DivisionName
   home: string
   title: string
+  index: number
   navLinks: NavLink[]
 }
 

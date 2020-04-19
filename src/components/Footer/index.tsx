@@ -21,7 +21,6 @@ interface Props {
 }
 
 const Footer: React.FC<Props> = ({ contact, title, logo, divisions }) => {
-  console.log(divisions)
   const classes = useStyles()
   return (
     <footer className={classes.footer}>

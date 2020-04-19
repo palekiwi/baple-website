@@ -5,6 +5,7 @@ const useStyles = makeStyles((theme: Theme) =>
     nav: {
       height: "100%",
       width: 300,
+      maxWidth: 300,
       display: "flex",
       flexDirection: "column",
       textAlign: "center",
