@@ -22,6 +22,13 @@ interface SocialMedia {
   youtube?: SocialMediaLink
 }
 
+export type DivisionHome =
+  | "/"
+  | "/plastics/"
+  | "/energy/"
+  | "/engineering/"
+  | "/metal-packaging/"
+
 export type DivisionName =
   | "group"
   | "plastics"

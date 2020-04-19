@@ -5,6 +5,7 @@ import SectionCentered from "../SectionCentered"
 import Logo from "../../Logo"
 import { DivisionName } from "../../../types"
 import useStyles from "./styles"
+import { homeFromDomain } from "../../../utils"
 
 interface Props {
   domain: DivisionName
@@ -20,14 +21,14 @@ const More: React.FC<Props> = ({ domain }) => {
         </div>
       }
     >
-      <Link to="/contact">
+      <Link to={`${homeFromDomain(domain)}contact`}>
         <Button
           className={classes.button}
           variant="outlined"
           color="primary"
           size="large"
         >
-          Contáctanos!
+          ¡Contáctanos!
         </Button>
       </Link>
     </SectionCentered>
