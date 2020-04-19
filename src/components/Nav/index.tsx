@@ -8,7 +8,7 @@ import CloseIcon from "@material-ui/icons/Close"
 import useStyles from "./styles"
 
 interface Props {
-  handleClose: () => void
+  handleClose: (event: React.KeyboardEvent | React.MouseEvent) => void
   open: boolean
   title: string
 }

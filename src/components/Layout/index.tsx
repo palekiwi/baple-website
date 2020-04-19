@@ -17,7 +17,7 @@ interface Props {
 const Layout: React.FC<Props> = ({ children, domain }) => {
   const classes = useStyles()
   const data = useLayoutQuery()
-  const sm = data.site.siteMetadata
+  const { contact } = data.site.siteMetadata
   const div = data.allJavascriptFrontmatter.edges.find(
     x => x.node.frontmatter.division.name === domain
   )
@@ -28,11 +28,11 @@ const Layout: React.FC<Props> = ({ children, domain }) => {
     <div className={classes.layout}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Header siteTitle={div.node.frontmatter.division.title} />
+        <Header division={div.node.frontmatter.division} contact={contact} />
         <main className={classes.main}>{children}</main>
         <Footer
           divisions={data.allJavascriptFrontmatter.edges}
-          contact={sm.contact}
+          contact={contact}
           logo={div.node.frontmatter.division.logo.text.childImageSharp.fixed}
           title={div.node.frontmatter.division.title}
         />

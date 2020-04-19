@@ -41,8 +41,23 @@ export const useLayoutQuery: Fn = () => {
                 name
                 home
                 title
+                navLinks {
+                  to
+                  label
+                  links {
+                    to
+                    label
+                  }
+                }
                 logo {
                   text {
+                    childImageSharp {
+                      fixed(width: 250) {
+                        ...GatsbyImageSharpFixed
+                      }
+                    }
+                  }
+                  notext {
                     childImageSharp {
                       fixed(width: 250) {
                         ...GatsbyImageSharpFixed

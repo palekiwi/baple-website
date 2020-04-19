@@ -19,6 +19,10 @@ const useStyles = makeStyles((theme: Theme) =>
     link: {
       color: theme.palette.primary.main,
     },
+    brand: {
+      display: "flex",
+      alignItems: "center",
+    },
     title: {},
   })
 )

@@ -1,51 +1,78 @@
-import PropTypes from "prop-types"
 import React from "react"
 import { Link } from "gatsby"
 import Nav from "../Nav"
-import { AppBar, IconButton, Typography, Toolbar } from "@material-ui/core"
+import {
+  AppBar,
+  Button,
+  Hidden,
+  IconButton,
+  Typography,
+  Toolbar,
+} from "@material-ui/core"
 import MenuIcon from "@material-ui/icons/Menu"
+import { FixedObject } from "gatsby-image"
+import { AppData, ContactInfo } from "../../types"
 
 import useStyles from "./styles"
 
 interface Props {
-  siteTitle: string
+  logo?: FixedObject
+  contact: ContactInfo
+  division: AppData
 }
 
-const Header: React.FC<Props> = ({ siteTitle }) => {
+const Header: React.FC<Props> = ({ division: d }) => {
   const classes = useStyles()
-  const [menu, setMenu] = React.useState(false)
-  const closeMenu = () => setMenu(false)
+  const [state, setState] = React.useState(false)
+  const toggleDrawer = (open: boolean) => (
+    event: React.KeyboardEvent | React.MouseEvent
+  ) => {
+    if (
+      event.type === "keydown" &&
+      ((event as React.KeyboardEvent).key === "Tab" ||
+        (event as React.KeyboardEvent).key === "Shift")
+    ) {
+      return
+    }
+
+    setState(open)
+  }
 
   return (
     <header>
       <AppBar position="fixed" className={classes.bar}>
         <Toolbar>
-          <Link to="/">
-            <Typography
-              variant="subtitle1"
-              color="primary"
-              className={classes.title}
-            >
-              {siteTitle}
-            </Typography>
+          <Link to={d.home}>
+            <div className={classes.brand}>
+              <img
+                className={classes.logo}
+                src={d.logo.notext.childImageSharp.fixed.src}
+              />
+              <Hidden smDown>
+                <Typography color="primary" className={classes.title}>
+                  {d.title}
+                </Typography>
+              </Hidden>
+            </div>
           </Link>
           <div className={classes.grow} />
-          <IconButton color="primary" onClick={() => setMenu(!menu)}>
+          <Hidden smDown>
+            <div>
+              {d.navLinks.map(x => (
+                <Link key={x.to} to={x.to}>
+                  <Button className={classes.link}>{x.label}</Button>
+                </Link>
+              ))}
+            </div>
+          </Hidden>
+          <IconButton color="primary" onClick={toggleDrawer(true)}>
             <MenuIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Nav title={siteTitle} open={menu} handleClose={closeMenu} />
+      <Nav title={d.title} open={state} handleClose={toggleDrawer(false)} />
     </header>
   )
-}
-
-Header.propTypes = {
-  siteTitle: PropTypes.string.isRequired,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
 }
 
 export default Header
