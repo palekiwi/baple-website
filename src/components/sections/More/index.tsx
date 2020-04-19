@@ -1,32 +1,37 @@
 import * as React from "react"
 import Button from "@material-ui/core/Button"
 import { Link } from "gatsby"
-import SectionCentered from "./SectionCentered"
-import Image from "gatsby-image"
+import SectionCentered from "../SectionCentered"
+import Logo from "../../Logo"
+import { DivisionName } from "../../../types"
+import useStyles from "./styles"
 
-const More: React.SFC<Props> = ({ heading, image, logo, link, classes }) => (
-  <SectionCentered
-    heading={heading}
-    before={
-      logo && (
+interface Props {
+  domain: DivisionName
+}
+const More: React.FC<Props> = ({ domain }) => {
+  const classes = useStyles()
+  return (
+    <SectionCentered
+      heading="¿Quieres saber más sobre nosotros?"
+      before={
         <div className={classes.logo}>
-          <Image fluid={logo.childImageSharp.fluid} />
+          <Logo domain={domain} />
         </div>
-      )
-    }
-    after={
-      <Link to={link.to}>
+      }
+    >
+      <Link to="/contact">
         <Button
           className={classes.button}
           variant="outlined"
           color="primary"
           size="large"
         >
-          {link.label}
+          Contáctanos!
         </Button>
       </Link>
-    }
-  />
-)
+    </SectionCentered>
+  )
+}
 
-export default withStyles(styles)(More)
+export default More

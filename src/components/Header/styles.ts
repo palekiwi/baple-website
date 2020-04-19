@@ -23,7 +23,9 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
       alignItems: "center",
     },
-    title: {},
+    title: {
+      fontWeight: 600,
+    },
   })
 )
 

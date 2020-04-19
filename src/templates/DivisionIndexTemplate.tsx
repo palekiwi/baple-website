@@ -7,6 +7,7 @@ import Categories from "../components/sections/Categories"
 import SEO from "../components/seo"
 import Hero from "../components/sections/Hero"
 import { Container } from "@material-ui/core"
+import More from "../components/sections/More"
 
 interface Props {
   data: {
@@ -30,8 +31,9 @@ const DivisionIndexTemplate: React.FC<Props> = ({ data }) => {
     welcome,
     categories,
   } = data.javascriptFrontmatter.frontmatter.sections
+  const domain = data.javascriptFrontmatter.fields.domain
   return (
-    <Layout domain={data.javascriptFrontmatter.fields.domain}>
+    <Layout domain={domain}>
       <SEO title={data.javascriptFrontmatter.frontmatter.title} />
       {welcome && (
         <Welcome
@@ -54,6 +56,7 @@ const DivisionIndexTemplate: React.FC<Props> = ({ data }) => {
           </Container>
         </Hero>
       )}
+      <More domain={domain} />
     </Layout>
   )
 }
