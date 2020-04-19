@@ -8,6 +8,7 @@ export interface Props {
   image?: FluidObject
   gradient?: string
   heading?: string
+  padding?: number
   subheading?: string
   before?: React.ReactNode
   after?: React.ReactNode

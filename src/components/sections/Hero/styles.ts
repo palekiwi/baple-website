@@ -1,4 +1,5 @@
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
+import { Props } from "./index"
 
 export const useDesktopStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -7,6 +8,10 @@ export const useDesktopStyles = makeStyles((theme: Theme) =>
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
+      paddingTop: (props: Props) =>
+        theme.spacing(props.padding ? props.padding : 0),
+      paddingBottom: (props: Props) =>
+        theme.spacing(props.padding ? props.padding : 0),
     },
     image: {
       position: "absolute",
@@ -24,8 +29,8 @@ export const useDesktopStyles = makeStyles((theme: Theme) =>
       textAlign: "center",
       position: "relative",
       width: "100%",
-      paddingTop: theme.spacing(3),
-      paddingBottom: theme.spacing(3),
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(4),
       paddingRight: theme.spacing(6),
       paddingLeft: theme.spacing(6),
       borderTop: `1px solid ${theme.palette.common.white}`,
@@ -44,7 +49,7 @@ export const useDesktopStyles = makeStyles((theme: Theme) =>
     },
     text: {},
     header: {
-      marginBottom: "1em",
+      marginBottom: theme.spacing(2),
     },
     heading: {},
     subheading: {

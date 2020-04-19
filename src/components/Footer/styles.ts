@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingBottom: theme.spacing(3),
     },
     footer: {
-      marginTop: theme.spacing(3),
+      //marginTop: theme.spacing(3),
     },
     footerSocial: {
       backgroundColor: theme.palette.primary.light,

@@ -12,8 +12,9 @@ const HeroDesktop: React.SFC<Props> = ({
   subheading,
   image,
   fullHeight,
+  padding,
 }) => {
-  const classes = useDesktopStyles()
+  const classes = useDesktopStyles({ padding })
   return (
     <section
       className={clsx(classes.section, fullHeight && classes.fullHeight)}

@@ -20,11 +20,6 @@ const useStyles = makeStyles((theme: Theme) =>
       flexDirection: "column",
       paddingTop: 64,
       margin: "0 auto",
-      maxWidth: 1400,
-      [theme.breakpoints.up("sm")]: {
-        paddingLeft: theme.spacing(3),
-        paddingRight: theme.spacing(3),
-      },
     },
   })
 )

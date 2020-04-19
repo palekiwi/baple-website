@@ -4,6 +4,7 @@ import DivisionsList from "../../DivisionsList"
 import Hero from "../../sections/Hero"
 import { graphql, useStaticQuery } from "gatsby"
 import { FluidObject } from "gatsby-image"
+import { Container } from "@material-ui/core"
 
 interface Props {
   divisions: {
@@ -30,17 +31,22 @@ const LandingTemplate: React.SFC<Props> = ({ divisions }) => {
         relativePath: { regex: "/baple-group-background.jpeg/" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 1400) {
+          fluid(maxWidth: 1920, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       }
     }
   `)
-  console.log(data)
   return (
-    <Hero image={data.background.childImageSharp.fluid}>
-      <DivisionsList divisions={divisions} />
+    <Hero
+      image={data.background.childImageSharp.fluid}
+      heading={"Bienvenido a Baple Group"}
+      padding={6}
+    >
+      <Container>
+        <DivisionsList divisions={divisions} />
+      </Container>
     </Hero>
   )
 }
