@@ -49,7 +49,8 @@ export const useDesktopStyles = makeStyles((theme: Theme) =>
     },
     text: {},
     header: {
-      marginBottom: theme.spacing(2),
+      marginTop: theme.spacing(4),
+      marginBottom: theme.spacing(4),
     },
     heading: {},
     subheading: {

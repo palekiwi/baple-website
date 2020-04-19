@@ -40,7 +40,7 @@ const SectionCentered: React.SFC<Props> = ({
           <div className={classes.content}>
             {before && <div className={classes.before}>{before}</div>}
             {heading && (
-              <Typography variant="h3" className={classes.heading}>
+              <Typography variant="h4" className={classes.heading}>
                 {heading}
               </Typography>
             )}

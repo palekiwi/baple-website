@@ -28,7 +28,7 @@ const HeroDesktop: React.SFC<Props> = ({
         <Container>
           <div className={classes.header}>
             {heading && (
-              <Typography variant="h2" className={classes.heading}>
+              <Typography variant="h4" className={classes.heading}>
                 {heading}
               </Typography>
             )}
