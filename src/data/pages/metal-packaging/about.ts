@@ -4,7 +4,6 @@ export const frontmatter = {
   title: "About",
   sections: {
     about1: {
-      logo: "../../../images/logos/baple-plastics-logo.png",
       image: "../../../images/background/MetalPackaging_Half.jpg",
       heading: "Baple Metal Packaging",
       body: [
