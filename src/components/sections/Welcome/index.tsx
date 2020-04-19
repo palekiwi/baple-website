@@ -2,12 +2,13 @@ import * as React from "react"
 import Hidden from "@material-ui/core/Hidden"
 import WelcomeDesktop from "./WelcomeDesktop"
 import WelcomeMobile from "./WelcomeMobile"
+import { DivisionName } from "../../../types"
 import { FluidObject } from "gatsby-image"
 
 export interface Props {
   heading?: string
   subheading?: string
-  logo?: FluidObject
+  domain: DivisionName
   image?: FluidObject
   quotes?: Array<{ quote: string; author: string }>
   gradient?: string

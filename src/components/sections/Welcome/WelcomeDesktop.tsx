@@ -3,12 +3,13 @@ import { Grid, Typography } from "@material-ui/core"
 import Hero from "../../sections/Hero"
 import { Props } from "./index"
 import { useDesktopStyles } from "./styles"
+import Logo from "../../Logo"
 
 const WelcomeDesktop: React.SFC<Props> = ({
   heading,
   subheading,
-  logo,
   image,
+  domain,
   quotes,
 }) => {
   const classes = useDesktopStyles()
@@ -16,11 +17,11 @@ const WelcomeDesktop: React.SFC<Props> = ({
     <Hero fullHeight image={image && image}>
       <div className={classes.section}>
         <Grid container>
-          {logo && (
-            <Grid item xs={12} md={4} className={classes.logoPane}>
-              <img className={classes.logo} src={logo.src} />
-            </Grid>
-          )}
+          <Grid item xs={12} md={4} className={classes.logoPane}>
+            <div className={classes.logo}>
+              <Logo domain={domain} />
+            </div>
+          </Grid>
           <Grid item xs={12} md={8} className={classes.textPane}>
             <div className={classes.text}>
               {heading && (

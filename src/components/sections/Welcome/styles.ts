@@ -85,7 +85,7 @@ export const useMobileStyles = makeStyles((theme: Theme) =>
       border: `1px solid transparent`,
     },
     logo: {
-      textAlign: "center",
+      margin: "0 auto",
       width: "50%",
     },
     textPane: {

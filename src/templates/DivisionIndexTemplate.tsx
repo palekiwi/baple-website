@@ -40,6 +40,7 @@ const DivisionIndexTemplate: React.FC<Props> = ({ data }) => {
           heading={welcome.heading}
           subheading={welcome.subheading}
           logo={welcome.logo && welcome.logo.childImageSharp.fluid}
+          domain={domain}
           image={welcome.image && welcome.image.childImageSharp.fluid}
           quotes={welcome.quotes}
         />

@@ -4,22 +4,20 @@ export const frontmatter = {
   title: "Baple Energy",
   sections: {
     welcome: {
-      heading: "",
-      subheading: "",
-      logo: "../../../images/logos/baple-engineering-logo.png",
-      image: "../../../images/engineering/diego-ph-249471-unsplash.jpg",
       quotes: [
         {
           quote:
-            "Let’s go invent tomorrow rather than worrying about what happened yesterday.",
-          author: "Steve Jobs",
+            "I'd put my money on the sun and solar energy, what a source of power. I hope we don´t have to wait until oil and coal run out, before we tackle that.",
+          author: "Thomas Edison, 1931",
         },
         {
           quote:
-            "Vamos a inventar el mañana en lugar de preocuparnos por lo que pasó ayer",
-          author: "Steve Jobs",
+            "Pondría mi dinero en el sol y la energía solar, qué fuente de energía. Espero que no tengamos que esperar hasta que se agoten el petróleo y el carbón para abordar eso.",
+          author: "Thomas Edison, 1931",
         },
       ],
+      logo: "../../../images/logos/baple-energy-logo.png",
+      image: "../../../images/background/Powerwall.jpg",
     },
   },
 }
