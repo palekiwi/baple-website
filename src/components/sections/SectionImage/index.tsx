@@ -11,6 +11,7 @@ export interface Props {
   subheading?: string
   body?: string[]
   before?: React.ReactNode
+  loading?: "auto" | "lazy" | "eager"
 }
 
 const SectionImage: React.FC<Props> = ({
@@ -21,12 +22,17 @@ const SectionImage: React.FC<Props> = ({
   subheading,
   body,
   image,
+  loading = "lazy",
 }) => {
   const classes = useStyles()
   return (
     <HorizontalSplit
       reverse={reverse}
-      left={image && <Img className={classes.image} fluid={image} />}
+      left={
+        image && (
+          <Img className={classes.image} fluid={image} loading={loading} />
+        )
+      }
       right={
         <div className={classes.content}>
           {before && <div className={classes.before}>{before}</div>}

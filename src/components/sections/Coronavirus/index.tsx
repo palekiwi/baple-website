@@ -36,6 +36,7 @@ const Coronavirus: React.FC<{}> = () => {
     <section style={{ background: "#fff" }}>
       <Container>
         <Section
+          loading="eager"
           image={data.image.childImageSharp.fluid}
           heading="Let's fight COVID-19 together!"
           subheading="Baple Protective Equipment"
