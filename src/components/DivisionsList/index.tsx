@@ -8,6 +8,7 @@ import {
 } from "@material-ui/core"
 import { Link } from "gatsby"
 import { AppData } from "../../types"
+import Logo from "../../components/LogoSVG"
 
 import useStyles from "./styles"
 
@@ -27,10 +28,7 @@ const DivisionsList: React.FC<Props> = ({ divisions }) => {
               <Card className={classes.card}>
                 <CardActionArea className={classes.cardAction}>
                   <CardContent className={classes.content}>
-                    <img
-                      className={classes.image}
-                      src={division.logo.text.childImageSharp.fluid.src}
-                    />
+                    <Logo fill="red" domain={division.name} />
                     <Typography color="inherit" className={classes.label}>
                       {division.title}
                     </Typography>
