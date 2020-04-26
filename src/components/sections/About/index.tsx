@@ -1,6 +1,6 @@
 import * as React from "react"
 import SectionImage from "../SectionImage"
-import Logo from "../../Logo"
+import Logo from "../../LogoSVG"
 import { DivisionName } from "../../../types"
 import useStyles from "./styles"
 import { FluidObject } from "gatsby-image"

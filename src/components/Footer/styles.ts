@@ -44,7 +44,11 @@ const useStyles = makeStyles((theme: Theme) =>
     logo: {
       width: 150,
       height: 150,
+      opacity: 0.5,
       marginRight: "1em",
+      "& path": {
+        fill: "#fff",
+      },
     },
     contact: {
       display: "flex",

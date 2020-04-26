@@ -14,7 +14,7 @@ interface Props {
 
 const UnderConstructionTemplate: React.SFC<Props> = ({ data }) => {
   return (
-    <Layout>
+    <Layout domain="group">
       <div>
         <div>Under Construction</div>
         {data.javascriptFrontmatter.fields.domain}

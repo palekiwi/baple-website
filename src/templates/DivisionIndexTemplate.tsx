@@ -92,13 +92,6 @@ export const query = graphql`
               quote
               author
             }
-            logo {
-              childImageSharp {
-                fluid(maxWidth: 300) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
             image {
               childImageSharp {
                 fluid(maxWidth: 1920, quality: 100) {

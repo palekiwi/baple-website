@@ -17,6 +17,28 @@ export const frontmatter: { division: DivisionData } = {
         links: [],
       },
       {
+        label: "Divisions",
+        to: "/",
+        links: [
+          {
+            label: "Baple Plastics",
+            to: "/plastics",
+          },
+          {
+            label: "Baple Metal Packaging",
+            to: "/metal-packaging",
+          },
+          {
+            label: "Baple Energy",
+            to: "/energy",
+          },
+          {
+            label: "Baple Engineering",
+            to: "/engineering",
+          },
+        ],
+      },
+      {
         label: "Contacto",
         to: "/contact",
         links: [],

@@ -8,8 +8,6 @@ export const ContactInfoFragment = graphql`
       address
       socialMedia {
         facebook
-        twitter
-        instagram
       }
     }
   }

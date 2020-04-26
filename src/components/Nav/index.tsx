@@ -6,7 +6,7 @@ import { AppData, ContactInfo } from "../../types"
 import CloseIcon from "@material-ui/icons/Close"
 import PhoneIcon from "@material-ui/icons/Phone"
 import EmailIcon from "@material-ui/icons/Email"
-import Logo from "../Logo"
+import Logo from "../LogoSVG"
 
 import useStyles from "./styles"
 

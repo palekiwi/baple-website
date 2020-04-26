@@ -3,7 +3,7 @@ import { Grid, Typography } from "@material-ui/core"
 import Hero from "../../sections/Hero"
 import { Props } from "./index"
 import { useDesktopStyles } from "./styles"
-import Logo from "../../Logo"
+import Logo from "../../LogoSVG"
 
 const WelcomeDesktop: React.SFC<Props> = ({
   heading,

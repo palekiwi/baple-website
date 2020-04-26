@@ -3,7 +3,7 @@ import { Typography } from "@material-ui/core"
 import { Props } from "./index"
 import Hero from "../Hero"
 import { useMobileStyles } from "./styles"
-import Logo from "../../Logo"
+import Logo from "../../LogoSVG"
 
 const WelcomeMobile: React.SFC<Props> = ({
   heading,

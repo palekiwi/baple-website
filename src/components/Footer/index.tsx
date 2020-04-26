@@ -5,9 +5,8 @@ import { Link } from "gatsby"
 import FacebookIcon from "mdi-material-ui/Facebook"
 import TwitterIcon from "mdi-material-ui/Twitter"
 import InstagramIcon from "mdi-material-ui/Instagram"
-import { FixedObject } from "gatsby-image"
 import { AppData, ContactInfo, DivisionName } from "../../types"
-import Logo from "../../components/Logo"
+import Logo from "../../components/LogoSVG"
 
 import useStyles from "./styles"
 
