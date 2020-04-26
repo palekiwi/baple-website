@@ -55,7 +55,7 @@ const ContactPage: React.SFC<Props> = ({ contact, domain }) => {
                 <Paper className={classes.detailPane}>
                   <PhoneIcon className={classes.icon} />
                   <div className={classes.textContent}>
-                    <Typography className={classes.detailText} variant="h5">
+                    <Typography className={classes.detailText} variant="h6">
                       {contact.phone}
                     </Typography>
                   </div>
@@ -66,7 +66,7 @@ const ContactPage: React.SFC<Props> = ({ contact, domain }) => {
                 <Paper className={classes.detailPane}>
                   <EmailIcon className={classes.icon} />
                   <div className={classes.textContent}>
-                    <Typography className={classes.detailText} variant="h5">
+                    <Typography className={classes.detailText} variant="h6">
                       {contact.email}
                     </Typography>
                   </div>
@@ -82,7 +82,7 @@ const ContactPage: React.SFC<Props> = ({ contact, domain }) => {
                         <Typography
                           key={i}
                           className={classes.detailText}
-                          variant="h5"
+                          variant="h6"
                         >
                           {y}
                         </Typography>

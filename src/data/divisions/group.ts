@@ -17,6 +17,11 @@ export const frontmatter: { division: DivisionData } = {
         links: [],
       },
       {
+        label: "Coronavirus",
+        to: "/coronavirus",
+        links: [],
+      },
+      {
         label: "Divisions",
         to: "/",
         links: [

@@ -54,7 +54,7 @@ export const useDesktopStyles = makeStyles((theme: Theme) =>
     },
     heading: {},
     subheading: {
-      marginTop: "1rem",
+      marginTop: theme.spacing(2),
     },
     paragraph: {},
   })
@@ -93,13 +93,15 @@ export const useMobileStyles = makeStyles((theme: Theme) =>
       flexDirection: "column",
       justifyContent: "center",
       textAlign: "center",
-      paddingTop: theme.spacing(3),
-      paddingBottom: theme.spacing(3),
+      paddingTop: theme.spacing(0),
+      paddingBottom: theme.spacing(0),
     },
     container: {
       position: "relative",
       width: "100%",
       padding: theme.spacing(3),
+      paddingTop: theme.spacing(6),
+      paddingBottom: theme.spacing(6),
       borderTop: `1px solid ${theme.palette.common.white}`,
       borderBottom: `1px solid ${theme.palette.common.white}`,
       zIndex: 1,
@@ -119,9 +121,10 @@ export const useMobileStyles = makeStyles((theme: Theme) =>
     },
     subheading: {
       color: theme.palette.secondary.main,
-      marginTop: "1rem",
+      marginTop: theme.spacing(4),
     },
     content: {
+      textAlign: "center",
       padding: theme.spacing(3),
     },
     text: {},

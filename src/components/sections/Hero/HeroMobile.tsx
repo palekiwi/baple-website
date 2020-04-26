@@ -31,7 +31,9 @@ const HeroMobile: React.SFC<Props> = ({
             >
               {heading}
             </Typography>
-            <Typography variant="h5">{subheading}</Typography>
+            <Typography className={classes.subheading} variant="h5">
+              {subheading}
+            </Typography>
           </div>
         </div>
       </div>

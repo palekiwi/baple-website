@@ -7,7 +7,7 @@ import BapleEnergyLogo from "./BapleEnergyLogo"
 import BapleMetalPackagingLogo from "./BapleMetalPackagingLogo"
 
 export interface Props {
-  domain: DivisionName
+  domain?: DivisionName
   text?: boolean
   width?: string
 }
@@ -17,7 +17,7 @@ export interface LogoProps {
   text?: boolean
 }
 
-const Logo: React.FC<Props> = ({ domain, text = true, ...props }) => {
+const Logo: React.FC<Props> = ({ domain = "group", text = true, ...props }) => {
   switch (domain) {
     case "plastics":
       return <BaplePlasticsLogo text={text} {...props} />
