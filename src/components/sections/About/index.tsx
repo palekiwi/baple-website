@@ -6,7 +6,7 @@ import useStyles from "./styles"
 import { FluidObject } from "gatsby-image"
 
 interface Props {
-  domain: DivisionName
+  domain?: DivisionName
   logo?: boolean
   reverse?: boolean
   heading?: string
@@ -14,6 +14,7 @@ interface Props {
   image?: FluidObject
   body?: string[]
 }
+
 const About: React.FC<Props> = ({
   domain,
   reverse,
