@@ -1,33 +1,31 @@
 import React from "react"
 import clsx from "clsx"
-import Typography from "@material-ui/core/Typography"
-import Divider from "@material-ui/core/Divider"
-import Button from "@material-ui/core/Button"
-import IconButton from "@material-ui/core/IconButton"
+import { Button, Divider, IconButton, Typography } from "@material-ui/core"
 import { Link } from "gatsby"
 import FacebookIcon from "mdi-material-ui/Facebook"
 import TwitterIcon from "mdi-material-ui/Twitter"
 import InstagramIcon from "mdi-material-ui/Instagram"
-import { FixedObject } from "gatsby-image"
-import { AppData, ContactInfo } from "../../types"
+import { AppData, ContactInfo, DivisionName } from "../../types"
+import Logo from "../../components/LogoSVG"
 
 import useStyles from "./styles"
 
 interface Props {
   title: string
-  logo?: FixedObject
+  domain: DivisionName
   contact: ContactInfo
   divisions: { node: { frontmatter: { division: AppData } } }[]
 }
 
-const Footer: React.FC<Props> = ({ contact, title, logo, divisions }) => {
-  console.log(divisions)
+const Footer: React.FC<Props> = ({ contact, title, divisions, domain }) => {
   const classes = useStyles()
   return (
     <footer className={classes.footer}>
       <div className={classes.footerAddress}>
         <div className={classes.addressInner}>
-          {logo && <img className={classes.logo} src={logo.src} />}
+          <div className={classes.logo}>
+            <Logo domain={domain} />
+          </div>
           <div className={classes.contact}>
             <Typography color="inherit" gutterBottom>
               {title}

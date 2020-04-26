@@ -33,7 +33,7 @@ const Layout: React.FC<Props> = ({ children, domain }) => {
         <Footer
           divisions={data.allJavascriptFrontmatter.edges}
           contact={contact}
-          logo={div.node.frontmatter.division.logo.text.childImageSharp.fixed}
+          domain={domain}
           title={div.node.frontmatter.division.title}
         />
       </ThemeProvider>

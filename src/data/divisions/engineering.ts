@@ -4,6 +4,7 @@ export const frontmatter: { division: DivisionData } = {
   division: {
     name: "engineering",
     title: "Baple Engineering",
+    index: 4,
     logo: {
       text: "../../images/logos/baple-plastics-logo.png",
       notext: "../../images/logos/NoText/baple-group-no-text.png",

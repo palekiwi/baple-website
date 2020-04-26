@@ -33,6 +33,7 @@ export const useLayoutQuery: Fn = () => {
       }
       allJavascriptFrontmatter(
         filter: { fileAbsolutePath: { regex: "/divisions/" } }
+        sort: { fields: frontmatter___division___index, order: ASC }
       ) {
         edges {
           node {

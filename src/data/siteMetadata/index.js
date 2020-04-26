@@ -15,8 +15,8 @@ module.exports = {
     address: ["4F, No. 384, Daye Rd", "Beitou District, Taipei", "Taiwan"],
     socialMedia: {
       facebook: "https://www.facebook.com/baplenews/",
-      instagram: "https://www.facebook.com/baplenews/",
-      twitter: "https://www.facebook.com/baplenews/",
+      instagram: "",
+      twitter: "",
     },
   },
   //domains: [group, energy, engineering, plastics, metalPackaging],

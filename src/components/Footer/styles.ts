@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingBottom: theme.spacing(3),
     },
     footer: {
-      marginTop: theme.spacing(3),
+      //marginTop: theme.spacing(3),
     },
     footerSocial: {
       backgroundColor: theme.palette.primary.light,
@@ -44,7 +44,11 @@ const useStyles = makeStyles((theme: Theme) =>
     logo: {
       width: 150,
       height: 150,
+      opacity: 0.5,
       marginRight: "1em",
+      "& path": {
+        fill: "#fff",
+      },
     },
     contact: {
       display: "flex",
