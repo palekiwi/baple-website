@@ -57,7 +57,7 @@ const Header: React.FC<Props> = ({ division: d, contact }) => {
           <Hidden smDown>
             <div>
               {d.navLinks.map(x => (
-                <Link key={x.to} to={x.to}>
+                <Link key={x.label} to={x.to}>
                   <Button className={classes.link}>{x.label}</Button>
                 </Link>
               ))}

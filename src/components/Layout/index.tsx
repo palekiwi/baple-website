@@ -6,6 +6,7 @@ import { DivisionName } from "../../types"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import { ThemeProvider } from "@material-ui/core"
 import Header from "../Header"
+import Policy from "../Policy"
 import useStyles from "./styles"
 
 import Footer from "../Footer"
@@ -28,6 +29,7 @@ const Layout: React.FC<Props> = ({ children, domain }) => {
     <div className={classes.layout}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <Policy />
         <Header division={div.node.frontmatter.division} contact={contact} />
         <main className={classes.main}>{children}</main>
         <Footer
