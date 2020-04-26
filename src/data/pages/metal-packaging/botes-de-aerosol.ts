@@ -1,5 +1,6 @@
-export const frontmatter: CategoryPage = {
+export const frontmatter = {
   template: "CategoryTemplate",
+  publish: true,
   sections: {
     intro: {
       heading: "Botes de aerosol - NECK IN y STRAIGHT",

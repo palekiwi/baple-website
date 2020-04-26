@@ -1,6 +1,6 @@
 export const frontmatter = {
   template: "DivisionIndexTemplate",
-  publish: false,
+  publish: true,
   title: "Baple Energy",
   sections: {
     welcome: {
