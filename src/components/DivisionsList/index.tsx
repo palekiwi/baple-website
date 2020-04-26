@@ -28,7 +28,7 @@ const DivisionsList: React.FC<Props> = ({ divisions }) => {
               <Card className={classes.card}>
                 <CardActionArea className={classes.cardAction}>
                   <CardContent className={classes.content}>
-                    <Logo fill="red" domain={division.name} />
+                    <Logo domain={division.name} />
                     <Typography color="inherit" className={classes.label}>
                       {division.title}
                     </Typography>

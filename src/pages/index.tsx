@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import LandingPage from "../components/pages/LandingPage"
+import Coronavirus from "../components/sections/Coronavirus"
 import { AppData } from "../types"
 
 interface Props {
@@ -22,6 +23,7 @@ interface Props {
 const IndexPage: React.FC<Props> = ({ data }) => {
   return (
     <Layout domain="group">
+      <Coronavirus />
       <SEO title="Baple Group" />
       <LandingPage divisions={data.divisions.edges} />
     </Layout>

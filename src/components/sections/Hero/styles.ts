@@ -48,6 +48,10 @@ export const useDesktopStyles = makeStyles((theme: Theme) =>
       zIndex: -1,
     },
     text: {},
+    content: {
+      textAlign: "center",
+      padding: theme.spacing(3),
+    },
     header: {
       marginTop: theme.spacing(4),
       marginBottom: theme.spacing(4),

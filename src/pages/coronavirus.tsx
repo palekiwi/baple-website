@@ -10,6 +10,7 @@ import Img, { FluidObject } from "gatsby-image"
 import DownloadIcon from "@material-ui/icons/InsertDriveFile"
 
 type Image = { childImageSharp: { fluid: FluidObject } }
+
 interface Props {
   data: {
     file: {
@@ -22,6 +23,7 @@ interface Props {
     }
   }
 }
+
 const CoronavirusPage: React.FC<Props> = ({ data }) => {
   console.log(data)
   return (
@@ -29,7 +31,7 @@ const CoronavirusPage: React.FC<Props> = ({ data }) => {
       <SEO title="Coronavirus" />
       <Hero
         heading="Let's fight coronavirus together!"
-        subheading="Baple Protective Gear"
+        subheading="Baple Protective Equipment"
       >
         <Button variant="contained" color="primary" href={data.file.publicURL}>
           <DownloadIcon />

@@ -42,7 +42,7 @@ const LandingTemplate: React.SFC<Props> = ({ divisions }) => {
     <Hero
       image={data.background.childImageSharp.fluid}
       heading={"Bienvenido a Baple Group"}
-      padding={6}
+      padding={0}
     >
       <Container>
         <DivisionsList divisions={divisions} />

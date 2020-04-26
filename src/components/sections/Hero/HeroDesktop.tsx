@@ -42,7 +42,7 @@ const HeroDesktop: React.SFC<Props> = ({
               </Typography>
             )}
           </div>
-          {children}
+          <div className={classes.content}>{children}</div>
         </Container>
       </div>
     </section>
