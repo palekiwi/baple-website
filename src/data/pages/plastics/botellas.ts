@@ -1,5 +1,6 @@
 export const frontmatter = {
   template: "CategoryTemplate",
+  title: "Botellas",
   publish: true,
   sections: {
     intro: {

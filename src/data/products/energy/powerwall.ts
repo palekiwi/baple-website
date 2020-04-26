@@ -1,5 +1,5 @@
 export const frontmatter = {
-  title: "E-Scooter",
+  title: "Powerwall",
   sections: {
     about1: {
       heading: "Da la bienvenida al futuro: energía limpia y de autoconsumo",

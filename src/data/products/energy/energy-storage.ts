@@ -1,5 +1,5 @@
 export const frontmatter = {
-  title: "E-Scooter",
+  title: "Energy Storage",
   sections: {
     about: {
       heading: "Da la bienvenida al futuro: energía limpia y económica",

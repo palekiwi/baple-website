@@ -1,6 +1,7 @@
 export const frontmatter = {
   template: "CategoryTemplate",
   publish: true,
+  title: "Pulverizadores",
   sections: {
     intro: {
       heading: "Pulverizadores",

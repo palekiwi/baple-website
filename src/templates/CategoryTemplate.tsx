@@ -17,6 +17,7 @@ interface Props {
         domain: DivisionName
       }
       frontmatter: {
+        title: string
         sections: {
           intro: {
             heading: string
@@ -48,7 +49,7 @@ const CategoryPageTemplate: React.FC<Props> = ({ data }) => {
   } = data.javascriptFrontmatter.frontmatter.sections
   return (
     <Layout domain={domain}>
-      <SEO title="Contact Us" />
+      <SEO title={data.javascriptFrontmatter.frontmatter.title} />
       <Container>
         <SectionImage
           image={intro.image.childImageSharp.fluid}
@@ -84,6 +85,7 @@ export const query = graphql`
         domain
       }
       frontmatter {
+        title
         sections {
           intro {
             heading

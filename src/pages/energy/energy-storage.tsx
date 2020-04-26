@@ -4,11 +4,13 @@ import Layout from "../../components/Layout"
 import SectionCentered from "../../components/sections/SectionCentered"
 import { FluidObject } from "gatsby-image"
 import { Container } from "@material-ui/core"
+import SEO from "../../components/seo"
 
 interface Props {
   data: {
     javascriptFrontmatter: {
       frontmatter: {
+        title: string
         sections: {
           about: {
             heading: string
@@ -29,6 +31,7 @@ const EnergyStoragePage: React.SFC<Props> = ({ data }) => {
   const { about, infographic } = data.javascriptFrontmatter.frontmatter.sections
   return (
     <Layout domain="energy">
+      <SEO title={data.javascriptFrontmatter.frontmatter.title} />
       <Container>
         <SectionCentered
           reverse
@@ -50,6 +53,7 @@ export const query = graphql`
       fileAbsolutePath: { regex: "/products/energy/energy-storage.ts/" }
     ) {
       frontmatter {
+        title
         sections {
           about {
             heading

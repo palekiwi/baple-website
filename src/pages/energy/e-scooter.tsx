@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../../components/Layout"
 import About from "../../components/sections/About"
 import BES from "../../components/sections/BES"
+import SEO from "../../components/seo"
 import { FluidObject } from "gatsby-image"
 import { Container, Grid, Box } from "@material-ui/core"
 import ItemSpec from "../../components/sections/ItemSpec"
@@ -11,6 +12,7 @@ interface Props {
   data: {
     javascriptFrontmatter: {
       frontmatter: {
+        title: string
         sections: {
           about1: {
             heading: string
@@ -47,6 +49,7 @@ const EScooterPage: React.SFC<Props> = ({ data }) => {
   } = data.javascriptFrontmatter.frontmatter.sections
   return (
     <Layout domain="energy">
+      <SEO title={data.javascriptFrontmatter.frontmatter.title} />
       <Container>
         <About
           image={about1.image.childImageSharp.fluid}
@@ -83,6 +86,7 @@ export const query = graphql`
       fileAbsolutePath: { regex: "/products/energy/e-scooter.ts/" }
     ) {
       frontmatter {
+        title
         sections {
           about1 {
             heading
