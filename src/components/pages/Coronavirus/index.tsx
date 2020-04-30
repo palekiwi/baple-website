@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import useStyles from "./styles"
 import Img, { FluidObject } from "gatsby-image"
-import { Grid, Container, Button, Typography } from "@material-ui/core"
+import { Box, Grid, Container, Button, Typography } from "@material-ui/core"
 import DownloadIcon from "@material-ui/icons/InsertDriveFile"
 import Section from "../../sections/SectionFeatured"
 
@@ -55,7 +55,11 @@ const Coronavirus: React.FC<{}> = () => {
     }
   `)
   return (
-    <section style={{ background: "#fff" }}>
+    <section
+      style={{
+        background: "linear-gradient(60deg, #fff, #eee)",
+      }}
+    >
       <Container>
         <Section
           heading="Let's fight COVID-19 together!"
@@ -72,20 +76,37 @@ const Coronavirus: React.FC<{}> = () => {
                 Download Catalog
               </Button>
             </Grid>
-            <Grid item>
-              <Button
-                variant="outlined"
-                color="primary"
-                to="/coronavirus"
-                component={Link}
-              >
-                Learn More
-              </Button>
-            </Grid>
           </Grid>
         </Section>
+        <div style={{ textAlign: "center" }}>
+          <Box my={3}>
+            <Typography
+              style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              variant="h5"
+              color="primary"
+            >
+              Equipo de Protección
+            </Typography>
+            <Typography
+              style={{ textTransform: "uppercase" }}
+              color="primary"
+              variant="subtitle1"
+            >
+              Envíos a nivel mundial
+            </Typography>
+          </Box>
+          <Box my={3}>
+            <Typography style={{ fontWeight: "bold" }} variant="h6">
+              Compras con garantia legal
+            </Typography>
+            <Typography variant="subtitle2">
+              Productos con certificación médica de comunidad Europea, FDA y
+              standares Asiáticos
+            </Typography>
+          </Box>
+        </div>
       </Container>
-      <Grid container spacing={0}>
+      <Grid style={{ background: "#fff" }} container spacing={0}>
         {data.javascriptFrontmatter.frontmatter.sections.gridList.items.map(
           (x, i) => (
             <Grid item key={i} xs={12} sm={4} md={4} lg={2}>
