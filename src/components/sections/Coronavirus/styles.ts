@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
       height: "100%",
       width: "100%",
       background: theme.palette.primary.main,
-      opacity: 0.65,
+      opacity: 0.75,
       position: "absolute",
       zIndex: -1,
     },
@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     subheading: {
       color: "#fff",
+      textTransform: "uppercase",
       marginBottom: theme.spacing(2),
     },
     compras: {
