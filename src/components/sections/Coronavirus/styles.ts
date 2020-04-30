@@ -11,34 +11,26 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: "center",
       margin: "2rem 0",
     },
-    bes: {
-      marginLeft: theme.spacing(3),
-      marginRight: theme.spacing(3),
-      borderRadius: 4,
-      padding: theme.spacing(3),
-      border: "1px solid gray",
-      borderColor: theme.palette.grey[400],
-      textAlign: "center",
-      [theme.breakpoints.up("md")]: {
-        margin: 0,
-      },
+    item: {
+      position: "relative",
+      height: "100%",
     },
-    heading: {
-      marginBottom: "1rem",
+    itemHeading: {
+      color: theme.palette.background.default,
+      textTransform: "uppercase",
+      width: "100%",
+      position: "absolute",
+      textAlign: "center",
+      left: 0,
+      bottom: 0,
+      padding: theme.spacing(2),
+      background: theme.palette.primary.main,
+      opacity: 0.9,
     },
     image: {
-      paddingLeft: theme.spacing(3),
-      paddingRight: theme.spacing(3),
-      opacity: 0.8,
-      width: "80%",
-      margin: "0 auto",
-    },
-    besItem: {},
-    link: {
-      margin: "1.4em 0",
-    },
-    divider: {
-      margin: theme.spacing(3),
+      height: 260,
+      width: "100%",
+      verticalAlign: "middle",
     },
   })
 )

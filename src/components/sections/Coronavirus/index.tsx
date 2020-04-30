@@ -1,16 +1,25 @@
 import * as React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import useStyles from "./styles"
-import { FluidObject } from "gatsby-image"
-import { Grid, Container, Button } from "@material-ui/core"
+import Img, { FluidObject } from "gatsby-image"
+import { Grid, Container, Button, Typography } from "@material-ui/core"
 import DownloadIcon from "@material-ui/icons/InsertDriveFile"
-import Section from "../../sections/SectionImage"
+import Section from "../../sections/SectionFeatured"
 
 type Image = { childImageSharp: { fluid: FluidObject } }
 
 interface Data {
   file: {
     publicURL: string
+  }
+  javascriptFrontmatter: {
+    frontmatter: {
+      sections: {
+        gridList: {
+          items: { heading: string; image: Image }[]
+        }
+      }
+    }
   }
   image: Image
 }
@@ -47,9 +56,28 @@ const Coronavirus: React.FC<{}> = () => {
   `)
   return (
     <section style={{ background: "#fff" }}>
+      <Grid container spacing={0} alignItems="flex-end">
+        {data.javascriptFrontmatter.frontmatter.sections.gridList.items.map(
+          (x, i) => (
+            <Grid
+              item
+              key={i}
+              xs={12}
+              sm={4}
+              md={4}
+              lg={2}
+              className={classes.item}
+            >
+              <Img fluid={x.image.childImageSharp.fluid} />
+              <div className={classes.itemHeading}>
+                <Typography>{x.heading}</Typography>
+              </div>
+            </Grid>
+          )
+        )}
+      </Grid>
       <Container>
         <Section
-          loading="eager"
           heading="Let's fight COVID-19 together!"
           subheading="Baple Protective Equipment"
         >

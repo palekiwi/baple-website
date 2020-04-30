@@ -46,9 +46,11 @@ const useStyles = makeStyles((theme: Theme) =>
       marginBottom: "1em",
     },
     heading: {
-      paddingBottom: theme.spacing(3),
+      marginBottom: "0.4em",
     },
-    subheading: {},
+    subheading: {
+      marginBottom: "1em",
+    },
     paragraph: {},
   })
 )

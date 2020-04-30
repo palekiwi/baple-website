@@ -42,7 +42,11 @@ const SectionFeatured: React.FC<Props> = ({
         {before && before}
         <div className={classes.header}>
           {heading && (
-            <Typography variant="h5" className={classes.heading}>
+            <Typography
+              color="primary"
+              variant="h4"
+              className={classes.heading}
+            >
               {heading}
             </Typography>
           )}
