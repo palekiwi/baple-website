@@ -4,7 +4,6 @@ import useStyles from "./styles"
 import Img, { FluidObject } from "gatsby-image"
 import { Grid, Container, Button, Typography } from "@material-ui/core"
 import DownloadIcon from "@material-ui/icons/InsertDriveFile"
-import Section from "../../sections/SectionFeatured"
 
 type Image = { childImageSharp: { fluid: FluidObject } }
 

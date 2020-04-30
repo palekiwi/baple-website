@@ -1,10 +1,9 @@
 import * as React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import useStyles from "./styles"
 import Img, { FluidObject } from "gatsby-image"
 import { Box, Grid, Container, Button, Typography } from "@material-ui/core"
 import DownloadIcon from "@material-ui/icons/InsertDriveFile"
-import Section from "../../sections/SectionFeatured"
 
 type Image = { childImageSharp: { fluid: FluidObject } }
 
@@ -61,24 +60,23 @@ const Coronavirus: React.FC<{}> = () => {
       }}
     >
       <Container>
-        <Section
-          heading="Let's fight COVID-19 together!"
-          subheading="Baple Protective Equipment"
-        >
-          <Grid container justify="center" spacing={1}>
-            <Grid item>
-              <Button
-                variant="contained"
-                color="primary"
-                href={data.file.publicURL}
-              >
-                <DownloadIcon />
-                Download Catalog
-              </Button>
-            </Grid>
-          </Grid>
-        </Section>
         <div style={{ textAlign: "center" }}>
+          <Box my={6}>
+            <Typography variant="h4" color="primary" gutterBottom>
+              Let's fight COVID-19 together!
+            </Typography>
+            <Typography color="text" variant="subtitle1" gutterBottom>
+              Baple Protective Equipment
+            </Typography>
+            <Button
+              variant="contained"
+              color="primary"
+              href={data.file.publicURL}
+            >
+              <DownloadIcon />
+              Download Catalog
+            </Button>
+          </Box>
           <Box my={3}>
             <Typography
               style={{ fontWeight: "bold", textTransform: "uppercase" }}

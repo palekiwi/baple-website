@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme: Theme) =>
       marginTop: "1em",
     },
     content: {
-      padding: theme.spacing(3),
       height: "100%",
       width: "100%",
       display: "flex",
@@ -26,9 +25,6 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: "center",
       alignItems: "center",
       textAlign: "center",
-      [theme.breakpoints.up("md")]: {
-        padding: theme.spacing(6),
-      },
     },
     text: {},
     link: {
