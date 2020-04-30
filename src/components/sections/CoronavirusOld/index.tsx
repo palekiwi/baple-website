@@ -20,28 +20,15 @@ const Coronavirus: React.FC<{}> = () => {
 
   const data: Data = useStaticQuery(graphql`
     query {
-      javascriptFrontmatter(
-        fileAbsolutePath: { regex: "/products/coronavirus/promo.ts/" }
-      ) {
-        frontmatter {
-          sections {
-            gridList {
-              items {
-                heading
-                image {
-                  childImageSharp {
-                    fluid(maxWidth: 1200) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
       file(relativePath: { eq: "files/suministro-proyecto-coronavirus.pdf" }) {
         publicURL
+      }
+      image: file(relativePath: { regex: "/face-shield.jpeg/" }) {
+        childImageSharp {
+          fluid(maxWidth: 1920) {
+            ...GatsbyImageSharpFluid
+          }
+        }
       }
     }
   `)
@@ -50,6 +37,7 @@ const Coronavirus: React.FC<{}> = () => {
       <Container>
         <Section
           loading="eager"
+          image={data.image.childImageSharp.fluid}
           heading="Let's fight COVID-19 together!"
           subheading="Baple Protective Equipment"
         >
