@@ -44,6 +44,10 @@ const useStyles = makeStyles((theme: Theme) =>
     compras: {
       color: "#fff",
       fontWeight: "bold",
+      marginBottom: theme.spacing(1),
+    },
+    certification: {
+      color: "#fff",
       marginBottom: theme.spacing(2),
     },
     itemHeading: {

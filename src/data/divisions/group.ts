@@ -16,11 +16,11 @@ export const frontmatter: { division: DivisionData } = {
         to: "/",
         links: [],
       },
-      {
-        label: "Coronavirus",
-        to: "/coronavirus",
-        links: [],
-      },
+      //{
+      //label: "Coronavirus",
+      //to: "/coronavirus",
+      //links: [],
+      //},
       {
         label: "Divisions",
         to: "/",

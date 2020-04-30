@@ -87,27 +87,23 @@ const Coronavirus: React.FC<{}> = () => {
                 <Typography className={classes.compras} variant="subtitle1">
                   Compras con garantia legal
                 </Typography>
+                <Typography
+                  className={classes.certification}
+                  variant="subtitle2"
+                >
+                  Productos con certificación médica de comunidad Europea, FDA y
+                  standares Asiáticos
+                </Typography>
               </div>
               <Grid container justify="center" spacing={1}>
                 <Grid item>
                   <Button
                     className={classes.download}
                     variant="contained"
-                    color="primary"
                     href={data.file.publicURL}
                   >
                     <DownloadIcon />
-                    Download Catalog
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button
-                    className={classes.more}
-                    variant="contained"
-                    to="/coronavirus"
-                    component={Link}
-                  >
-                    Aprende más
+                    Catálogo
                   </Button>
                 </Grid>
               </Grid>
