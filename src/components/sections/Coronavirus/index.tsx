@@ -55,56 +55,67 @@ const Coronavirus: React.FC<{}> = () => {
     }
   `)
   return (
-    <section style={{ background: "#fff" }}>
-      <Grid container spacing={0} alignItems="flex-end">
-        {data.javascriptFrontmatter.frontmatter.sections.gridList.items.map(
-          (x, i) => (
-            <Grid
-              item
-              key={i}
-              xs={12}
-              sm={4}
-              md={4}
-              lg={2}
-              className={classes.item}
-            >
-              <Img fluid={x.image.childImageSharp.fluid} />
-              <div className={classes.itemHeading}>
-                <Typography>{x.heading}</Typography>
+    <section style={{ background: "#fff" }} className={classes.section}>
+      <div className={classes.images}>
+        <Grid container spacing={0} alignItems="center">
+          {data.javascriptFrontmatter.frontmatter.sections.gridList.items.map(
+            (x, i) => (
+              <Grid
+                item
+                key={i}
+                xs={6}
+                sm={4}
+                md={4}
+                lg={2}
+                className={classes.item}
+              >
+                <Img fluid={x.image.childImageSharp.fluid} />
+              </Grid>
+            )
+          )}
+        </Grid>
+        <div className={classes.content}>
+          <div className={classes.overlay} />
+          <div className={classes.text}>
+            <Container>
+              <div>
+                <Typography className={classes.heading} variant="h4">
+                  Let's fight COVID-19 toghter!
+                </Typography>
+                <Typography className={classes.subheading} variant="h6">
+                  Equipo de Protección. Envíos a nivel mundial
+                </Typography>
+                <Typography className={classes.compras} variant="subtitle1">
+                  Compras con garantia legal
+                </Typography>
               </div>
-            </Grid>
-          )
-        )}
-      </Grid>
-      <Container>
-        <Section
-          heading="Let's fight COVID-19 together!"
-          subheading="Baple Protective Equipment"
-        >
-          <Grid container justify="center" spacing={1}>
-            <Grid item>
-              <Button
-                variant="contained"
-                color="primary"
-                href={data.file.publicURL}
-              >
-                <DownloadIcon />
-                Download Catalog
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button
-                variant="outlined"
-                color="primary"
-                to="/coronavirus"
-                component={Link}
-              >
-                Learn More
-              </Button>
-            </Grid>
-          </Grid>
-        </Section>
-      </Container>
+              <Grid container justify="center" spacing={1}>
+                <Grid item>
+                  <Button
+                    className={classes.download}
+                    variant="contained"
+                    color="primary"
+                    href={data.file.publicURL}
+                  >
+                    <DownloadIcon />
+                    Download Catalog
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button
+                    className={classes.more}
+                    variant="contained"
+                    to="/coronavirus"
+                    component={Link}
+                  >
+                    Aprende más
+                  </Button>
+                </Grid>
+              </Grid>
+            </Container>
+          </div>
+        </div>
+      </div>
     </section>
   )
 }
