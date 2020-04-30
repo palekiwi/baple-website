@@ -3,7 +3,8 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     snackbar: {
-      width: "100%",
+      marginLeft: theme.spacing(2),
+      marginRight: theme.spacing(2),
       borderRadius: 0,
     },
     content: {

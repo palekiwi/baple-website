@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Button, Snackbar, Typography } from "@material-ui/core"
+import { Button, Container, Snackbar, Typography } from "@material-ui/core"
 import useStyles from "./styles"
 
 const Policy: React.FC<{}> = () => {
@@ -24,7 +24,7 @@ const Policy: React.FC<{}> = () => {
   }
 
   return (
-    <div>
+    <Container>
       <Snackbar
         className={classes.snackbar}
         anchorOrigin={{
@@ -55,7 +55,7 @@ const Policy: React.FC<{}> = () => {
           </Button>,
         ]}
       />
-    </div>
+    </Container>
   )
 }
 
