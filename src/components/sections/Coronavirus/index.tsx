@@ -79,7 +79,7 @@ const Coronavirus: React.FC<{}> = () => {
             <Container>
               <div>
                 <Typography className={classes.heading} variant="h4">
-                  Let's fight COVID-19 toghter!
+                  Let's fight COVID-19 together!
                 </Typography>
                 <Typography className={classes.subheading} variant="h6">
                   Equipo de Protección. Envíos a nivel mundial
