@@ -5,8 +5,12 @@ module.exports = {
   contact: {
     name: "HQ",
     email: "info@baple.es",
-    phone: "+886-2-2897-0076",
-    address: ["4F, No. 384, Daye Rd", "Beitou District, Taipei", "Taiwan"],
+    phone: "+886-02-2629-8968",
+    address: [
+      "No. 71-1, Ln. 32, Xuefu Rd.",
+      "Tamsui Dist., New Taipei City 251002",
+      "Taiwan (R.O.C.)",
+    ],
     socialMedia: {
       facebook: "https://www.facebook.com/baplenews/",
       instagram: "",
