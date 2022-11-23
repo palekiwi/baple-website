@@ -41,7 +41,7 @@ const Header: React.FC<Props> = ({ division: d, contact }) => {
     <header>
       <AppBar position="fixed" className={classes.bar}>
         <Toolbar>
-          <Link to={d.home}>
+          <Link to={"/"}>
             <div className={classes.brand}>
               <div className={classes.logo}>
                 <LogoHeader domain={d.name} text={false} />
@@ -56,7 +56,7 @@ const Header: React.FC<Props> = ({ division: d, contact }) => {
           <div className={classes.grow} />
           <Hidden smDown>
             <div>
-              {d.navLinks.map(x => (
+              {d.navLinks.map((x) => (
                 <Link key={x.label} to={x.to}>
                   <Button className={classes.link}>{x.label}</Button>
                 </Link>

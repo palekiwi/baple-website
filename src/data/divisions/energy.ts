@@ -13,7 +13,7 @@ export const frontmatter: { division: DivisionData } = {
     navLinks: [
       {
         label: "Inicio",
-        to: "/energy",
+        to: "/",
         links: [],
       },
       {
